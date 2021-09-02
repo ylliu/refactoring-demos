@@ -11,7 +11,7 @@ public class Student {
 
     public Course bookCourse(int start, int end) {
         for (Course course : allCourses) {
-            if (course.start == start && course.end == end) {
+            if (isSame(start, end, course)) {
                 bookedCourses.add(course);
                 return course;
             }
@@ -21,11 +21,15 @@ public class Student {
 
     public void deleteCourses(int start, int end) {
         for (Course course : bookedCourses) {
-            if (course.start == start && course.end == end) {
+            if (isSame(start, end, course)) {
                 bookedCourses.remove(new Course(start, end));
                 return;
             }
         }
+    }
+
+    private boolean isSame(int start, int end, Course course) {
+        return course.start == start && course.end == end;
     }
 
     public List<Course> bookedCourses() {
