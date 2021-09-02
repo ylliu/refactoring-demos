@@ -22,6 +22,6 @@ public class StudentTest {
 
         student.deleteCourses(14, 15);
 
-        assertThat(student.coursesBooked(), is(Arrays.asList(new Course(7, 8))));
+        assertThat(student.bookedCourses(), is(Arrays.asList(new Course(7, 8))));
     }
 }
